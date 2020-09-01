@@ -19,4 +19,13 @@ class Network
     main_characters.flatten
   end
 
+  def actors_by_show
+    hash = {}
+    @shows.each do |show|
+      hash[show] = show.actors
+    end
+    hash
+  end
+
+
 end
