@@ -43,5 +43,14 @@ class Network
     end
   end
 
+  def prolific_actors
+    #this is sloppy and not dynamic - would need refactoring
+    actors = shows_by_actor.find_all do |show|
+      show.last.count > 1
+    end
+    actors = actors.flatten.first
+    [actors]
+  end
+
 
 end

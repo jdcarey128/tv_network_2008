@@ -76,5 +76,14 @@ class NetworkTest < Minitest::Test
 
   end
 
-  
+  def test_it_can_return_prolific_actors
+
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+    @nbc.add_show(@baywatch)
+
+    assert_equal ["David Hasselhoff"], @nbc.prolific_actors
+  end
+
+
 end
