@@ -27,5 +27,21 @@ class Network
     hash
   end
 
+  def shows_by_actor
+    show_actors = actors_by_show
+    network_actors = show_actors.values.flatten.uniq
+    actor_shows = {}
+    network_actors.each do |actor|
+      actor_shows[actor] = find_shows(actor)
+    end
+    actor_shows
+  end
+
+  def find_shows(actor)
+    @shows.find_all do |show|
+      show.actors.include?(actor)
+    end
+  end
+
 
 end
